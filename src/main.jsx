@@ -12,6 +12,8 @@ import Queries from './Pages/Queries/Queries';
 import RecommendationsForMe from './Pages/RecommendationsForMe/RecommendationsForMe';
 import MyQueries from './Pages/MyQueries/MyQueries';
 import MyRecommendations from './Pages/MyRecommendations/MyRecommendations';
+import LogIn from './Pages/Authenticate/LogIn/LogIn';
+import SignUp from './Pages/Authenticate/SignUp/SignUp';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -36,6 +38,14 @@ const router = createBrowserRouter([
       {
         path: '/myRecommend',
         element: <MyRecommendations></MyRecommendations>
+      },
+      {
+        path: '/signUp',
+        element: <SignUp></SignUp>
+      },
+      {
+        path: '/logIn',
+        element: <LogIn></LogIn>
       }
     ]
   },
