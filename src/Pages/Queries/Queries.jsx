@@ -29,7 +29,7 @@ const Queries = () => {
       <div className="flex justify-center my-6">
         <div className="relative">
           <button
-            className="bg-gray-400 px-4 py-2 rounded-md bg-white text-[hsl(112,43%,55%)]"
+            className=" px-4 py-2 rounded-md bg-white border border-[hsl(112,43%,55%)] text-[hsl(112,43%,55%)]"
             onClick={toggleGridLayout}
           >
             Layout
