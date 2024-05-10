@@ -1,3 +1,4 @@
+import { AiFillProduct } from "react-icons/ai";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa6";
 import { Link } from "react-router-dom";
@@ -10,7 +11,7 @@ const Footer = () => {
         <div className="lg:flex">
             <div className="w-full -mx-6 lg:w-2/5">
                 <div className="px-6">
-                <Link to={'/'} className="btn relative -left-7 md:left-7 btn-ghost text-xs md:text-2xl gap-0 font_Jersey  text-gray-400"><piFillProduct className="text-[hsl(112,43%,55%)]" />
+                <Link to={'/'} className="btn relative -left-7 md:left-7 btn-ghost text-xs md:text-2xl gap-0 font_Jersey  text-gray-400"><AiFillProduct className="text-[hsl(112,43%,55%)]" />
                     <span className="text-[hsl(112,43%,55%)]">A</span>lt<span className="text-[hsl(112,43%,55%)]">P</span>rod<span className="text-[hsl(112,43%,55%)]">Hub</span></Link>
 
                     <p className="max-w-sm mt-2 text-gray-500 dark:text-gray-400">Join 31,000+ other and never miss out on new tips, tutorials, and more.</p>
@@ -55,9 +56,9 @@ const Footer = () => {
 
                     <div>
                         <h3 className="text-gray-700 uppercase dark:text-white">Products</h3>
-                        <p className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Mega cloud</p>
-                        <p className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Aperion UI</p>
-                        <p className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Meraki UI</p>
+                        <p className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">AnyTypes</p>
+                        <p className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Recommended</p>
+                        <p className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Branded</p>
                     </div>
 
                     <div>
