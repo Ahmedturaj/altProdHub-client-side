@@ -16,6 +16,7 @@ import LogIn from './Pages/Authenticate/LogIn/LogIn';
 import SignUp from './Pages/Authenticate/SignUp/SignUp';
 import AddQueries from './Pages/MyQueries/AddQueries/AddQueries';
 import QueryDetail from './Pages/Queries/QueryDetail';
+import PrivateRoutes from './Components/PageBanner/PrivateRoute/PrivateRoute';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -32,24 +33,24 @@ const router = createBrowserRouter([
       },
       {
         path: '/queryDetails/:id',
-        element: <QueryDetail></QueryDetail>,
+        element: <PrivateRoutes><QueryDetail></QueryDetail></PrivateRoutes>,
         loader: ({ params }) => fetch(`http://localhost:5000/queries/${params.id}`)
       },
       {
         path: '/reCommendForMe',
-        element: <RecommendationsForMe></RecommendationsForMe>
+        element: <PrivateRoutes><RecommendationsForMe></RecommendationsForMe></PrivateRoutes>
       },
       {
         path: '/myQueries',
-        element: <MyQueries></MyQueries>
+        element: <PrivateRoutes><MyQueries></MyQueries></PrivateRoutes>
       },
       {
         path: '/addQuery',
-        element: <AddQueries></AddQueries>
+        element: <PrivateRoutes><AddQueries></AddQueries></PrivateRoutes>
       },
       {
         path: '/myRecommend',
-        element: <MyRecommendations></MyRecommendations>
+        element: <PrivateRoutes><MyRecommendations></MyRecommendations></PrivateRoutes>
       },
       {
         path: '/signUp',
