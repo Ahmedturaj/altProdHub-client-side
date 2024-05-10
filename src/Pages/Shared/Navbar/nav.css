@@ -1,0 +1,4 @@
+.menu li a:active,
+.menu li a:focus{
+    color: hsl(112,43%,55%)!important;
+}
