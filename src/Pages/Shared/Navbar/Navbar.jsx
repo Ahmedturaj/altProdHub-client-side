@@ -19,12 +19,12 @@ const Navbar = () => {
         setIsChecked(e.target.checked);
     }
     const navLink = <>
-        <li><NavLink to={'/'} className={({ isActive }) => isActive ? 'text-[hsl(112,43%,55%)] mr-2  border border-[hsl(112,43%,55%)] font-bold  p-2 rounded-md text-xl' : 'text-xl'}>Home</NavLink></li>
-        <li><NavLink to={'/allQueries'} className={({ isActive }) => isActive ? 'text-[hsl(112,43%,55%)] mr-2  border border-[hsl(112,43%,55%)] font-bold  p-2 rounded-md text-xl' : 'text-xl'}>Queries</NavLink></li>
-        {loading ? <span className="loading loading-dots loading-md"></span> : user && <li><NavLink to={'/reCommendForMe'} className={({ isActive }) => isActive ? 'text-[hsl(112,43%,55%)] mr-2 border border-[hsl(112,43%,55%)] font-bold  p-2 rounded-md text-xl' : 'text-xl'}>Recommendations
+        <li><NavLink to={'/'} className={({ isActive }) => isActive ? 'text-[hsl(112,43%,55%)] mr-2  border border-[hsl(112,43%,55%)] font-bold  p-2 rounded-md text-xl' : 'text-xl text-lime-500'}>Home</NavLink></li>
+        <li><NavLink to={'/allQueries'} className={({ isActive }) => isActive ? 'text-[hsl(112,43%,55%)] mr-2  border border-[hsl(112,43%,55%)] font-bold  p-2 rounded-md text-xl' : 'text-xl text-lime-500'}>Queries</NavLink></li>
+        {loading ? <span className="loading loading-dots loading-md"></span> : user && <li><NavLink to={'/reCommendForMe'} className={({ isActive }) => isActive ? 'text-[hsl(112,43%,55%)] mr-2 border border-[hsl(112,43%,55%)] font-bold  p-2 rounded-md text-xl' : 'text-xl text-lime-500'}>Recommendations
             For Me</NavLink></li>}
-        {loading ? <span className="loading loading-dots loading-md"></span> : user && <li><NavLink to={'/myQueries'} className={({ isActive }) => isActive ? 'text-[hsl(112,43%,55%)] mr-2   border border-[hsl(112,43%,55%)] font-bold  p-2 rounded-md text-xl' : 'text-xl'}>MyQueries</NavLink></li>}
-        {loading ? <span className="loading loading-dots loading-md"></span> : user && <li><NavLink to={'/myRecommend'} className={({ isActive }) => isActive ? 'text-[hsl(112,43%,55%)] mr-2   border border-[hsl(112,43%,55%)] font-bold  p-2 rounded-md text-xl' : 'text-xl'}>My recommendations</NavLink></li>}
+        {loading ? <span className="loading loading-dots loading-md"></span> : user && <li><NavLink to={'/myQueries'} className={({ isActive }) => isActive ? 'text-[hsl(112,43%,55%)] mr-2   border border-[hsl(112,43%,55%)] font-bold  p-2 rounded-md text-xl' : 'text-xl text-lime-500'}>MyQueries</NavLink></li>}
+        {loading ? <span className="loading loading-dots loading-md"></span> : user && <li><NavLink to={'/myRecommend'} className={({ isActive }) => isActive ? 'text-[hsl(112,43%,55%)] mr-2   border border-[hsl(112,43%,55%)] font-bold  p-2 rounded-md text-xl' : 'text-xl text-lime-500'}>My recommendations</NavLink></li>}
 
 
     </>
@@ -39,8 +39,8 @@ const Navbar = () => {
                         {navLink}
                     </ul>
                 </div>
-                <Link to={'/'} className="btn relative -left-7 md:left-7 btn-ghost text-xs md:text-2xl gap-0 font_Jersey "><AiFillProduct className="text-[hsl(112,43%,55%)]" />
-                    <span className="text-[hsl(112,43%,55%)]">G</span>reen<span className="text-[hsl(112,43%,55%)]">G</span>oods<span className="text-[hsl(112,43%,55%)]">Hub</span></Link>
+                <Link to={'/'} className="btn relative -left-7 md:left-7 btn-ghost text-xs md:text-2xl gap-0 font_Jersey  text-gray-400"><AiFillProduct className="text-[hsl(112,43%,55%)]" />
+                    <span className="text-[hsl(112,43%,55%)]">A</span>lt<span className="text-[hsl(112,43%,55%)]">P</span>rod<span className="text-[hsl(112,43%,55%)]">Hub</span></Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
