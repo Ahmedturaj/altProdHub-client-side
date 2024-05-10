@@ -1,11 +1,97 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AiFillProduct } from 'react-icons/ai';
+import { updateProfile } from 'firebase/auth';
+import Swal from 'sweetalert2';
+import { useContext } from 'react';
+import { AuthContext } from '../../../Provider/AuthProvider';
 
 const SignUp = () => {
+    // const [showPassword, setShowPassword] = useState(false);
+    // const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+    const { signUp, setUser } = useContext(AuthContext);
+    const location = useLocation()
+    const navigate = useNavigate()
+    const handleSignUp = (e) => {
+        e.preventDefault();
+        const name = e.target.name.value;
+        const photo = e.target.photo.value;
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        const confirmPassword = e.target.confirmPassword.value;
+        if (password.length < 6) {
+            Swal.fire({
+                icon: "warning",
+                text: 'You have to put 6 character In Your Password',
+            });
+            return;
+        } else if (!/[A-Z]/.test(password)) {
+            Swal.fire({
+                icon: "warning",
+                text: 'You have to use at least one Uppercase character In Your Password',
+            });
+            return;
+        }
+        else if (!/[a-z]/.test(password)) {
+            Swal.fire({
+                icon: "warning",
+                text: 'You have to use at least one lowercase character In Your Password',
+            });
+            return;
+        }
+
+        else if (!/[0-9]/.test(password)) {
+            Swal.fire({
+                icon: "warning",
+                text: 'You have to use at least one numeric character In Your Password',
+            });
+            return;
+        }
+        else if (password !== confirmPassword) {
+            Swal.fire({
+                icon: "warning",
+                text: 'Please confirm right password',
+            });
+            return;
+        }
+        signUp(name, photo, email, password)
+            .then((result) => {
+                updateProfile(result.user, {
+                    displayName: name,
+                    photoURL: photo
+                })
+
+                setUser(result.user)
+
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "You have Signed up successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                navigate(location?.state ? location.state : '/')
+
+                e.target.reset();
+            })
+            .catch(error => {
+                const errorMessage = error.message
+                    .split("/")[1]
+                    .replace(/\)\./g, "")
+                    .replace(/-/g, " ")
+                    .replace(/\b\w/g, (char) => char.toUpperCase());
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: `${errorMessage}`,
+                });
+            })
+
+    }
+
     return (
         <section className="mt-24">
             <div className="container flex items-center justify-center min-h-screen px-6 mx-auto">
-                <form className="w-full max-w-md">
+                <form onSubmit={handleSignUp} className="w-full max-w-md">
                     <div className="flex justify-center mx-auto">
                         <AiFillProduct className="text-[hsl(112,43%,55%)] w-auto h-7 text-2xl sm:h-8" />
                     </div>
@@ -23,7 +109,7 @@ const SignUp = () => {
                             </svg>
                         </span>
 
-                        <input type="text" className="block w-full py-3 text-gray-700  border rounded-lg px-11  dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Username" name='name'/>
+                        <input type="text" className="block w-full py-3 text-gray-700  border rounded-lg px-11  dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Username" name='name' />
                     </div>
 
                     <label className="flex items-center px-3 py-3 mx-auto mt-6 text-center  border-2 border-dashed rounded-lg cursor-pointer dark:border-gray-600 ">
@@ -33,7 +119,7 @@ const SignUp = () => {
 
                         <h2 className="mx-3 text-gray-400">Profile Photo</h2>
 
-                        <input id="dropzone-file" type="url" className="hidden" name='photo'/>
+                        <input id="dropzone-file" type="url" className="" name='photo' />
                     </label>
 
                     <div className="relative flex items-center mt-6">
@@ -43,7 +129,7 @@ const SignUp = () => {
                             </svg>
                         </span>
 
-                        <input type="email" className="block w-full py-3 text-gray-700  border rounded-lg px-11  dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Email address" name='email'/>
+                        <input type="email" className="block w-full py-3 text-gray-700  border rounded-lg px-11  dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Email address" name='email' />
                     </div>
 
                     <div className="relative flex items-center mt-4">
@@ -53,7 +139,7 @@ const SignUp = () => {
                             </svg>
                         </span>
 
-                        <input type="password" className="block w-full px-10 py-3 text-gray-700  border rounded-lg  dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Password" name='password'/>
+                        <input type="password" className="block w-full px-10 py-3 text-gray-700  border rounded-lg  dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Password" name='password' />
                     </div>
 
                     <div className="relative flex items-center mt-4">
@@ -63,7 +149,7 @@ const SignUp = () => {
                             </svg>
                         </span>
 
-                        <input type="password" className="block w-full px-10 py-3 text-gray-700  border rounded-lg  dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Confirm Password" name='confirmPassword'/>
+                        <input type="password" className="block w-full px-10 py-3 text-gray-700  border rounded-lg  dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Confirm Password" name='confirmPassword' />
                     </div>
 
                     <div className="mt-6">
