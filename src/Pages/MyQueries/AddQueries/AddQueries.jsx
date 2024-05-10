@@ -57,7 +57,7 @@ const AddQueries = () => {
     }
     return (
         <section className="">
-            <div className="w-full">
+            <div className="w-full relative -top-20">
                 <PageBanner pageTitle={'Add Your Queries'}></PageBanner>
             </div>
             <div className=" mt-14 max-w-4xl p-6 mx-auto bg-gray-500 rounded-md shadow-m">

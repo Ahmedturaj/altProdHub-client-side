@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { FaComment } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 const Query = ({ query }) => {
     const {
         productName,
@@ -9,7 +10,8 @@ const Query = ({ query }) => {
         detail,
         dateTime,
         authorName,
-        authorImage
+        authorImage,
+        _id
     } = query;
 
     const parsedDateTime = new Date(dateTime);
@@ -43,7 +45,7 @@ const Query = ({ query }) => {
                                 <p>0</p>
                             </div>
                             <div>
-                                <button className='btn text-white bg-[hsl(112,43%,55%)]'>Recommended</button>
+                               <Link to={`/queryDetails/${_id}`}> <button className='btn text-white bg-[hsl(112,43%,55%)]'>Recommended</button></Link>
                             </div>
                         </div>
                         <div className="flex items-center mt-4">
@@ -57,17 +59,7 @@ const Query = ({ query }) => {
 };
 
 Query.propTypes = {
-    query: PropTypes.shape({
-        productName: PropTypes.string,
-        productBrand: PropTypes.string,
-        productImage: PropTypes.string,
-        QueryTitle: PropTypes.string,
-        detail: PropTypes.string,
-        dateTime: PropTypes.string,
-        authorName: PropTypes.string,
-        authorEmail: PropTypes.string,
-        authorImage: PropTypes.string
-    })
+    query:PropTypes.node
 };
 
 export default Query;

@@ -15,6 +15,7 @@ import MyRecommendations from './Pages/MyRecommendations/MyRecommendations';
 import LogIn from './Pages/Authenticate/LogIn/LogIn';
 import SignUp from './Pages/Authenticate/SignUp/SignUp';
 import AddQueries from './Pages/MyQueries/AddQueries/AddQueries';
+import QueryDetail from './Pages/Queries/QueryDetail';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -28,6 +29,11 @@ const router = createBrowserRouter([
         path: '/allQueries',
         element: <Queries></Queries>,
         loader: () => fetch('http://localhost:5000/queries')
+      },
+      {
+        path: '/queryDetails/:id',
+        element: <QueryDetail></QueryDetail>,
+        loader: ({ params }) => fetch(`http://localhost:5000/queries/${params.id}`)
       },
       {
         path: '/reCommendForMe',
