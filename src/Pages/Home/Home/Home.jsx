@@ -7,7 +7,7 @@ const Home = () => {
          <div className="banner relative md:-top-14 lg:-top-20">
             <Banner></Banner>
          </div>
-         <div className="bg-slate-200 p-4">
+         <div className="p-4">
             <RecentQueries></RecentQueries>
          </div>
         </section>
