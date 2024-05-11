@@ -54,7 +54,6 @@ const Queries = () => {
               >
                 3 columns
               </button>
-              {/* Add more layout options here */}
             </div>
           )}
         </div>

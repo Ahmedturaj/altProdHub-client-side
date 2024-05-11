@@ -61,32 +61,32 @@ const AddQueries = () => {
                 <PageBanner pageTitle={'Add Your Queries'}></PageBanner>
             </div>
             <div className=" mt-14 max-w-4xl p-6 mx-auto bg-gray-500 rounded-md shadow-m">
-                <h2 className="text-lg font-semibold text-white capitalize dark:text-white">Account settings</h2>
+                <h2 className="text-lg font-semibold text-white capitalize dark:text-white">Add Your Query</h2>
 
                 <form onSubmit={handleAddQuery}>
                     <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
                         <div>
                             <label className="text-white" >Product Name</label>
-                            <input name="productName" type="text" className="block w-full px-4 py-2 mt-2  bg-white border border-gray-200 rounded-md   dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                            <input name="productName" type="text" className="block w-full px-4 py-2 mt-2  bg-white border border-gray-200 rounded-md   dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" required/>
                         </div>
 
                         <div>
                             <label className="text-white" >Product Brand</label>
-                            <input type="text" name="productBrand" className="block w-full px-4 py-2 mt-2  bg-white border border-gray-200 rounded-md   dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                            <input type="text" name="productBrand" className="block w-full px-4 py-2 mt-2  bg-white border border-gray-200 rounded-md   dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" required/>
                         </div>
 
                         <div>
                             <label className="text-white" >Product Image</label>
-                            <input name="productImage" type="url" className="block w-full px-4 py-2 mt-2  bg-white border border-gray-200 rounded-md   dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                            <input name="productImage" type="url" className="block w-full px-4 py-2 mt-2  bg-white border border-gray-200 rounded-md   dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" required/>
                         </div>
 
                         <div>
                             <label className="text-white">QueryTitle</label>
-                            <input type="text" name="QueryTitle" className="block w-full px-4 py-2 mt-2  bg-white border border-gray-200 rounded-md   dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                            <input type="text" name="QueryTitle" className="block w-full px-4 py-2 mt-2  bg-white border border-gray-200 rounded-md   dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" required/>
                         </div>
                         <div>
                             <label className="text-white">Boycotting Reason Details</label>
-                            <textarea name="detail" id="" cols="10" rows="5" className="block w-full px-4 py-2 mt-2  bg-white border border-gray-200 rounded-md   dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"></textarea>
+                            <textarea name="detail" id="" cols="10" rows="5" className="block w-full px-4 py-2 mt-2  bg-white border border-gray-200 rounded-md   dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" required />
                         </div>
                         <div>
                             <label className="text-white">Date & Time</label>
