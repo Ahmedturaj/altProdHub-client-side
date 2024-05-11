@@ -1,10 +1,13 @@
 
+import axios from 'axios';
 import PropTypes from 'prop-types';
 import { GrUpdate } from 'react-icons/gr';
 import { MdDelete } from 'react-icons/md';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
-const MyQuery = ({ myQuery }) => {
+const MyQuery = ({ myQuery, myQueries, setMyQueries }) => {
+
     const {
         productName,
         productBrand,
@@ -26,6 +29,38 @@ const MyQuery = ({ myQuery }) => {
         hour12: true
     });
 
+    const handleDelete = _id => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axios.delete(`http://localhost:5000/queries/${_id}`)
+
+                    .then(data => {
+                        console.log(data.data);
+                        if (data.data.deletedCount > 0) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                            });
+                            const remaining = myQueries.filter(query => query._id !== _id)
+                            setMyQueries(remaining);
+                        }
+
+                    })
+
+            }
+            return;
+        });
+    }
+
     return (
         <div className="max-w-2xl px-8 py-4 bg-white rounded-lg shadow-md dark:bg-gray-800">
             <div className="flex items-center justify-between">
@@ -36,7 +71,7 @@ const MyQuery = ({ myQuery }) => {
             <div className="mt-2">
                 <p className="text-xl font-bold text-gray-700 dark:text-white hover:text-gray-600 dark:hover:text-gray-200 hover:underline">{productName}</p>
                 <p className="text-xl mt-5 font-bold text-gray-700 dark:text-white hover:text-gray-600 dark:hover:text-gray-200 hover:underline">{QueryTitle}</p>
-                <p className="mt-2 text-gray-600 dark:text-gray-300">{`${detail.substring(0,150)}.....`}</p>
+                <p className="mt-2 text-gray-600 dark:text-gray-300">{`${detail.substring(0, 150)}.....`}</p>
             </div>
 
             <div className="flex items-center justify-between mt-4">
@@ -49,16 +84,18 @@ const MyQuery = ({ myQuery }) => {
             </div>
             <div className="mt-5 flex justify-between items-center">
                 <Link to={`/update/${_id}`}>
-                <button className='btn bg-gray-600 text-white hover:bg-gray-500'><GrUpdate /> Update</button>
+                    <button className='btn bg-gray-600 text-white hover:bg-gray-500'><GrUpdate /> Update</button>
                 </Link>
-                <button className='btn bg-gray-600 text-white hover:bg-gray-500'><MdDelete /> Delete</button>
+                <button onClick={() => handleDelete(_id)} className='btn bg-gray-600 text-white hover:bg-gray-500'><MdDelete /> Delete</button>
             </div>
         </div>
     );
 };
 
 MyQuery.propTypes = {
-    myQuery: PropTypes.object
+    myQuery: PropTypes.object,
+    myQueries: PropTypes.array,
+    setMyQueries: PropTypes.func
 };
 
 export default MyQuery;

@@ -86,7 +86,7 @@ const MyQueries = () => {
 
                     <div className={`w-11/12 mx-auto gap-10 grid ${layoutOption}`}>
                         {
-                            sortQueries.map(myQuery => <MyQuery key={myQuery._id} myQuery={myQuery}></MyQuery>)
+                            sortQueries.map(myQuery => <MyQuery key={myQuery._id} myQuery={myQuery} setMyQueries={setMyQueries} myQueries={myQueries}></MyQuery>)
                         }
                     </div>
                 </div>}
