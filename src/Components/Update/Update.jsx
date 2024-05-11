@@ -2,6 +2,8 @@ import { useContext, useState } from "react";
 import PageBanner from "../PageBanner/PageBanner";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { useLoaderData, useNavigate } from "react-router-dom";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 
 
@@ -14,11 +16,19 @@ const Update = () => {
         productImage,
         QueryTitle,
         detail,
-        authorName,
-        authorEmail,
-        authorImage,
+        _id,
     } = loadedData;
     const { user } = useContext(AuthContext);
+    const getCurrentDateTime = () => {
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0');
+        const day = String(now.getDate()).padStart(2, '0');
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        return `${year}-${month}-${day}T${hours}:${minutes}`;
+    };
+    const [defaultDateTime, setDefaultDateTime] = useState(getCurrentDateTime());
     const navigate = useNavigate();
     const handleUpdateQuery = e => {
         e.preventDefault();
@@ -41,17 +51,21 @@ const Update = () => {
             authorImage: user?.photoURL,
         }
         console.log(query);
+        axios.put(`http://localhost:5000/queries/${_id}`, query)
+            .then(data => {
+                if (data.data.modifiedCount > 0) {
+                    Swal.fire({
+                        title: "Great!",
+                        text: "You Updated information successfully!",
+                        icon: "success",
+                        timer: 1500,
+                        showConfirmButton: false
+                    });
+                    navigate('/myQueries')
+                }
+            })
+
     }
-    const getCurrentDateTime = () => {
-        const now = new Date();
-        const year = now.getFullYear();
-        const month = String(now.getMonth() + 1).padStart(2, '0');
-        const day = String(now.getDate()).padStart(2, '0');
-        const hours = String(now.getHours()).padStart(2, '0');
-        const minutes = String(now.getMinutes()).padStart(2, '0');
-        return `${year}-${month}-${day}T${hours}:${minutes}`;
-    };
-    const [defaultDateTime, setDefaultDateTime] = useState(getCurrentDateTime());
 
     return (
         <section className="">
