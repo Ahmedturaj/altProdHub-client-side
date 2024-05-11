@@ -16,7 +16,7 @@ const TopUsers = () => {
     }, []);
 
     return (
-        <div className="mt-24">
+        <div className="mt-24 w-11/12 mx-auto">
             <div className="my-14 text-center w-full">
                 <h2 className="text-3xl text-center font-bold underline border-b-2 border-green-400 w-80">Ous Top Contributors</h2>
                 <p className="my-5">At AltProdHub, our top contributors represent the backbone of our community, embodying the spirit of collaboration and shared knowledge. These individuals have distinguished themselves through their consistent dedication and valuable contributions to the platform. Whether it is meticulously crafting comprehensive product listings, providing insightful reviews and ratings, or actively participating in discussions and forums, our top contributors play a pivotal role in shaping the AltProdHub experience for all users</p>
