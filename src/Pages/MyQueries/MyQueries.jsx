@@ -13,7 +13,7 @@ const MyQueries = () => {
             .then(res => res.json())
             .then(data => setMyQueries(data))
     }, [user]);
-    const [layoutOption, setLayoutOption] = useState("grid-cols-3");
+    const [layoutOption, setLayoutOption] = useState("lg:grid-cols-3");
     const [showDropdown, setShowDropdown] = useState(false);
 
     const toggleGridLayout = () => {
@@ -28,14 +28,6 @@ const MyQueries = () => {
     // Sort loadedData in descending order by dateTime
     const sortQueries = myQueries.sort((a, b) => new Date(b.dateTime) - new Date(a.dateTime));
 
-    // if (sortQueries.length !== 1) {
-    //     return (
-    //         <section className="flex flex-col justify-center items-center">
-    //             <img src={noQueryPhoto} alt="" className="bg-gray-200 bg-opacity-20" />
-    //             <p>Please Add Your Query</p>
-    //         </section>
-    //     )
-    // }
 
     return (
         <section>

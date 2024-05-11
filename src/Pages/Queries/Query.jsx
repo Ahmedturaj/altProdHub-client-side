@@ -27,9 +27,9 @@ const Query = ({ query }) => {
     return (
         <section>
            
-                <div className="card w-96 bg-base-100 shadow-xl">
+                <div className="card w-full bg-base-100 shadow-xl">
                     <figure>
-                        <img src={productImage} alt="Product" />
+                        <img src={productImage} alt="Product" className='h-96 object-cover' />
                     </figure>
                     <div className="card-body">
                         <h2 className="card-title">
@@ -38,7 +38,7 @@ const Query = ({ query }) => {
                         </h2>
                         <div className="badge badge-outline">{formattedDateTime}</div>
                         <h2 className='font-bold'>{QueryTitle}</h2>
-                        <p>{detail}</p>
+                        <p>{`${detail.substring(0, 100)}.....`}</p>
                         <div className="flex justify-between items-center">
                             <div className="flex gap-2 items-center">
                                 <FaComment />
@@ -59,7 +59,7 @@ const Query = ({ query }) => {
 };
 
 Query.propTypes = {
-    query:PropTypes.node
+    query:PropTypes.object
 };
 
 export default Query;

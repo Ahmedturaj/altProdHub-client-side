@@ -5,7 +5,7 @@ import Query from "./Query";
 
 const Queries = () => {
   const loadedData = useLoaderData();
-  const [layoutOption, setLayoutOption] = useState("grid-cols-3");
+  const [layoutOption, setLayoutOption] = useState("lg:grid-cols-3");
   const [showDropdown, setShowDropdown] = useState(false);
 
   const toggleGridLayout = () => {
@@ -35,24 +35,24 @@ const Queries = () => {
             Layout
           </button>
           {showDropdown && (
-            <div className="absolute top-10 right-0 bg-white shadow-md rounded-md">
+            <div className="absolute z-50 top-10 right-0 bg-white shadow-md rounded-md">
               <button
                 className="block w-full text-left px-4 py-2 hover:bg-gray-200"
                 onClick={() => changeLayout("grid-cols-1")}
               >
-               1 column
+               single
               </button>
               <button
                 className="block w-full text-left px-4 py-2 hover:bg-gray-200"
                 onClick={() => changeLayout("grid-cols-2")}
               >
-                2 columns
+                Double
               </button>
               <button
                 className="block w-full text-left px-4 py-2 hover:bg-gray-200"
                 onClick={() => changeLayout("grid-cols-3")}
               >
-                3 columns
+                Triple
               </button>
             </div>
           )}
