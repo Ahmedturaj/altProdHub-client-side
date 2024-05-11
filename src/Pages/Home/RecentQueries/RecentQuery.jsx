@@ -27,6 +27,7 @@ const RecentQuery = ({ recent }) => {
     return (
 
         <div className="max-w-2xl mt-24 px-8 py-4 bg-white rounded-lg shadow-md dark:bg-gray-800">
+            <Tilt className="scale-95" options={{ scale: 1.01, transition: true, speed: 1000, easing: "cubic-bezier(.03,.98,.52,.99)" }} >
             <div className="flex items-center justify-between">
                 <span className="text-sm font-light text-gray-600 dark:text-gray-400">{formattedDateTime}</span>
                 <a className="px-3 py-1 text-sm font-bold text-gray-100 transition-colors duration-300 transform bg-gray-600 rounded cursor-pointer hover:bg-gray-500" role="button">{productBrand}</a>
@@ -46,11 +47,12 @@ const RecentQuery = ({ recent }) => {
                     <p className="font-bold text-gray-700 cursor-pointer dark:text-gray-200">{authorName}</p>
                 </div>
             </div>
+            </Tilt>
             <Tilt className="scale-95" options={{ scale: 1.01, transition: true, speed: 1000, easing: "cubic-bezier(.03,.98,.52,.99)" }} >
                 <div className="mt-5 flex justify-between items-center">
                     <img src={productImage} alt="" />
                 </div>
-            </Tilt>
+                </Tilt>
         </div>
 
     );

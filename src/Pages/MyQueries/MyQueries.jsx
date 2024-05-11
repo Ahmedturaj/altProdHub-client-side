@@ -34,7 +34,7 @@ const MyQueries = () => {
             <div className="w-full relative -top-20">
                 <PageBanner pageTitle={'My Queries'}></PageBanner>
             </div>
-            <Link to={'/addQuery'} title="Add Your Query" className="md:w-80 text-center absolute md:top-56 top-36 mr-5 left-36 md:left-[510px] border-b-2 border-l-2
+            <Link to={'/addQuery'} title="Add Your Query" className="md:w-80 text-center absolute lg:top-56 top-40 mr-5 left-36 md:left-48 lg:left-[510px] border-b-2 border-l-2
             rounded-md border-[hsl(112,43%,55%)] hover:text-[hsl(112,67%,63%)] text-white md:text-2xl p-2"><button className="border-b-2 w-full border-l-2
             rounded-md border-[hsl(112,43%,55%)]">Add Queries</button></Link>
             {sortQueries.length === 0 ? <div className="flex flex-col justify-center items-center">

@@ -1,5 +1,6 @@
 import Banner from "../Banner/Banner";
 import RecentQueries from "../RecentQueries/RecentQueries";
+import TopUsers from "../TopUsers/TopUsers";
 
 const Home = () => {
     return (
@@ -9,6 +10,9 @@ const Home = () => {
          </div>
          <div className="p-4">
             <RecentQueries></RecentQueries>
+         </div>
+         <div className="p-4">
+            <TopUsers></TopUsers>
          </div>
         </section>
     );
