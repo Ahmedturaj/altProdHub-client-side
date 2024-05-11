@@ -1,5 +1,6 @@
 import About from "../About/About";
 import Banner from "../Banner/Banner";
+import FAQ from "../FAQ/FAQ";
 import RecentQueries from "../RecentQueries/RecentQueries";
 import TopUsers from "../TopUsers/TopUsers";
 
@@ -12,11 +13,14 @@ const Home = () => {
          <div className="p-4">
             <RecentQueries></RecentQueries>
          </div>
-         <div className="my-14 p-4">
+         <div className="mt-14 p-4">
             <About></About>
          </div>
          <div className="p-4">
             <TopUsers></TopUsers>
+         </div>
+         <div className="p-4 mt-24">
+            <FAQ></FAQ>
          </div>
         </section>
     );

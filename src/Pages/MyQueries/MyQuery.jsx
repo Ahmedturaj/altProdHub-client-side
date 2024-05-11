@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { GrUpdate } from 'react-icons/gr';
 import { MdDelete } from 'react-icons/md';
 import { Link } from 'react-router-dom';
+import { Tilt } from 'react-tilt';
 import Swal from 'sweetalert2';
 
 const MyQuery = ({ myQuery, myQueries, setMyQueries }) => {
@@ -70,8 +71,8 @@ const MyQuery = ({ myQuery, myQueries, setMyQueries }) => {
 
             <div className="mt-2">
                 <p className="text-xl font-bold text-gray-700 dark:text-white hover:text-gray-600 dark:hover:text-gray-200 hover:underline">{productName}</p>
-                <p className="text-xl mt-5 font-bold text-gray-700 dark:text-white hover:text-gray-600 dark:hover:text-gray-200 hover:underline">{QueryTitle}</p>
-                <p className="mt-2 text-gray-600 dark:text-gray-300">{`${detail.substring(0, 150)}.....`}</p>
+                <Tilt><p className="text-xl mt-5 font-bold text-gray-700 dark:text-white hover:text-gray-600 dark:hover:text-gray-200 hover:underline">{QueryTitle}</p>
+                <p className="mt-2 text-gray-600 dark:text-gray-300">{`${detail.substring(0, 150)}.....`}</p></Tilt>
             </div>
 
             <div className="flex items-center justify-between mt-4">
@@ -84,9 +85,9 @@ const MyQuery = ({ myQuery, myQueries, setMyQueries }) => {
             </div>
             <div className="mt-5 flex justify-between items-center">
                 <Link to={`/update/${_id}`}>
-                    <button className='btn bg-gray-600 text-white hover:bg-gray-500'><GrUpdate /> Update</button>
+                    <Tilt><button style={{transition:'all 1s'}} className='btn bg-gray-600 text-white hover:bg-green-500'><GrUpdate /> Update</button></Tilt>
                 </Link>
-                <button onClick={() => handleDelete(_id)} className='btn bg-gray-600 text-white hover:bg-gray-500'><MdDelete /> Delete</button>
+                <Tilt><button style={{transition:'all 1s'}} onClick={() => handleDelete(_id)} className='btn bg-gray-600 text-white hover:bg-amber-500'><MdDelete /> Delete</button></Tilt>
             </div>
         </div>
     );
