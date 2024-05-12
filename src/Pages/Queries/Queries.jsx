@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import PageBanner from "../../Components/PageBanner/PageBanner";
 import Query from "./Query";
@@ -7,6 +7,7 @@ const Queries = () => {
   const loadedData = useLoaderData();
   const [layoutOption, setLayoutOption] = useState("lg:grid-cols-3");
   const [showDropdown, setShowDropdown] = useState(false);
+  const [searchText, setSearchText] = useState("");
 
   const toggleGridLayout = () => {
     setShowDropdown(!showDropdown);
@@ -19,6 +20,11 @@ const Queries = () => {
 
   // Sort loadedData in descending order by dateTime
   const sortedData = loadedData.sort((a, b) => new Date(b.dateTime) - new Date(a.dateTime));
+
+  // Filter queries based on product name matching searchText
+  const filteredData = sortedData.filter(query =>
+    query.productName.toLowerCase().includes(searchText.toLowerCase())
+  );
 
   return (
     <section>
@@ -57,10 +63,19 @@ const Queries = () => {
             </div>
           )}
         </div>
+
+        {/* Search input */}
+        <input
+          type="text"
+          placeholder="Search by product name"
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+          className="ml-4 px-4 py-2 border border-gray-300 rounded-md"
+        />
       </div>
 
       <div className={`w-11/12 mx-auto gap-10 grid ${layoutOption}`}>
-        {sortedData.map((query) => (
+        {filteredData.map((query) => (
           <Query key={query._id} query={query}></Query>
         ))}
       </div>

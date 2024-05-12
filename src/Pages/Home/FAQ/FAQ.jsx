@@ -6,7 +6,6 @@ const FAQ = () => {
             <div className="w-full md:w-6/12">
                 <Tilt><img src={FAQPoster} alt="" className='rounded-3xl w-full'/></Tilt>
             </div>
-            {/* FAQ part */}
             <div className="w-full md:w-6/12">
                 <div className="collapse collapse-arrow bg-base-200">
                     <input type="radio" name="my-accordion-2" defaultChecked />
