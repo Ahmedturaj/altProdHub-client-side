@@ -1,7 +1,21 @@
+import axios from 'axios';
 import PropTypes from 'prop-types';
+import { useEffect, useState } from 'react';
+import CountUp from 'react-CountUp';
 import { FaComment } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import ScrollTrigger from 'react-scroll-trigger';
 const Query = ({ query }) => {
+    const [comments, setComments] = useState([]);
+    const [counterOn, setCounterOn] = useState(false);
+    useEffect(() => {
+        axios.get(`http://localhost:5000/recommendation/${_id}`)
+            .then(comment => {
+                setComments(comment.data);
+            })
+    }, [comments]);
+
+
     const {
         productName,
         productBrand,
@@ -42,7 +56,21 @@ const Query = ({ query }) => {
                         <div className="flex justify-between items-center">
                             <div className="flex gap-2 items-center">
                                 <FaComment />
-                                <p>0</p>
+                                <p>
+                                <ScrollTrigger
+                                    onEnter={() => setCounterOn(true)}
+                                    onExit={() => setCounterOn(false)}
+                                >
+                                    {counterOn && (
+                                        <CountUp
+                                            start={0}
+                                            end={comments?.length}
+                                            duration={2}
+                                            delay={0}
+                                        />
+                                    )}
+                                </ScrollTrigger>
+                                </p>
                             </div>
                             <div>
                                <Link to={`/queryDetails/${_id}`}> <button className='btn text-white bg-[hsl(112,43%,55%)]'>Recommended</button></Link>

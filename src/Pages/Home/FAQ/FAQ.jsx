@@ -3,11 +3,11 @@ import FAQPoster from '../../../assets/FAQ_IMG.png'
 const FAQ = () => {
     return (
         <div className='flex flex-col md:flex-row justify-between items-center gap-6 w-11/12 mx-auto'>
-            <div className="w-6/12">
+            <div className="w-full md:w-6/12">
                 <Tilt><img src={FAQPoster} alt="" className='rounded-3xl w-full'/></Tilt>
             </div>
             {/* FAQ part */}
-            <div className="w-6/12">
+            <div className="w-full md:w-6/12">
                 <div className="collapse collapse-arrow bg-base-200">
                     <input type="radio" name="my-accordion-2" defaultChecked />
                     <div className="collapse-title text-xl font-medium">
