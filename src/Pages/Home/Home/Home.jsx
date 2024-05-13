@@ -1,3 +1,4 @@
+import PageTitle from "../../../Components/PageTitle/PageTitle";
 import About from "../About/About";
 import Banner from "../Banner/Banner";
 import FAQ from "../FAQ/FAQ";
@@ -7,6 +8,7 @@ import TopUsers from "../TopUsers/TopUsers";
 const Home = () => {
     return (
         <section>
+         <PageTitle title={'Home'}></PageTitle>
          <div className="banner relative md:-top-14 lg:-top-20">
             <Banner></Banner>
          </div>

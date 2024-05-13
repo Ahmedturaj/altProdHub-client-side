@@ -41,7 +41,7 @@ const MyQuery = ({ myQuery, myQueries, setMyQueries }) => {
             confirmButtonText: "Yes, delete it!",
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:5000/queries/${_id}`)
+                axios.delete(`http://localhost:5000/queries/${_id}`,{withCredentials:true})
 
                     .then(data => {
                         console.log(data.data);

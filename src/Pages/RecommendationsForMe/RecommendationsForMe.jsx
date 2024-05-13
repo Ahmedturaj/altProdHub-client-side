@@ -3,29 +3,31 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import axios from "axios";
 import PageBanner from "../../Components/PageBanner/PageBanner";
 import RecommendationTable from "./RecommendationTable";
+import PageTitle from "../../Components/PageTitle/PageTitle";
 
 const RecommendationsForMe = () => {
-    const { user } = useContext(AuthContext);
-    const [recommendationForMe, setRecommendationForMe] = useState([]);
-    useEffect(() => {
-        const fetchMyRecommendations = async () => {
-            try {
-                const response = await axios.get(`http://localhost:5000/recommendationForMe/${user?.email}`);
-                setRecommendationForMe(response.data);
-            } catch (error) {
-                console.error('Error fetching recommendations:', error);
-            }
-        };
+  const { user } = useContext(AuthContext);
+  const [recommendationForMe, setRecommendationForMe] = useState([]);
+  useEffect(() => {
+    const fetchMyRecommendations = async () => {
+      try {
+        const response = await axios.get(`${import.meta.env.VITE_URL}/recommendationForMe/${user?.email}`);
+        setRecommendationForMe(response.data);
+      } catch (error) {
+        console.error('Error fetching recommendations:', error);
+      }
+    };
 
-        fetchMyRecommendations();
-    }, [user]);
-    return (
-        <div>
-          <div className="relative -top-20 w-full">
-                <PageBanner pageTitle={`ReCommendations for me : ${recommendationForMe?.length}`}></PageBanner>
-            </div>
-            {/* table */}
-            <div className="lg:ml-10">
+    fetchMyRecommendations();
+  }, [user]);
+  return (
+    <div>
+      <PageTitle title={'All Recommendation'}></PageTitle>
+      <div className="relative -top-20 w-full">
+        <PageBanner pageTitle={`ReCommendations for me : ${recommendationForMe?.length}`}></PageBanner>
+      </div>
+      {/* table */}
+      <div className="lg:ml-10">
 
         <div className="overflow-x-scroll md:overflow-x-hidden">
           <table className="table">
@@ -49,8 +51,8 @@ const RecommendationsForMe = () => {
         </div>
 
       </div>
-        </div>
-    );
+    </div>
+  );
 };
 
 export default RecommendationsForMe;

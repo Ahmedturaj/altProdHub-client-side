@@ -4,6 +4,7 @@ import { AiFillProduct } from 'react-icons/ai';
 import Swal from 'sweetalert2';
 import { useContext } from 'react';
 import { AuthContext } from '../../../Provider/AuthProvider';
+import PageTitle from '../../../Components/PageTitle/PageTitle';
 const LogIn = () => {
     const { logIn, setUser, googleLogIn}=useContext(AuthContext);
     const location = useLocation();
@@ -65,6 +66,7 @@ const LogIn = () => {
     }
     return (
         <section className=" mt-24 flex w-full max-w-sm mx-auto overflow-hidden rounded-lg   lg:max-w-4xl">
+            <PageTitle title={'LogIn'}></PageTitle>
             <div className="hidden bg-cover lg:block lg:w-1/2" style={{ backgroundImage: `url(${loginPhoto})` }}></div>
 
             <div className="w-full px-6 py-8 md:px-8 lg:w-1/2">

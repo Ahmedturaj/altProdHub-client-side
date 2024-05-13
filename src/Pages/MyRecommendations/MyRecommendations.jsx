@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import PageBanner from "../../Components/PageBanner/PageBanner";
 import Recommendation from "./Recommendation";
+import PageTitle from "../../Components/PageTitle/PageTitle";
 
 const MyRecommendations = () => {
     const { user } = useContext(AuthContext);
@@ -10,7 +11,7 @@ const MyRecommendations = () => {
     useEffect(() => {
         const fetchMyRecommendations = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/myRecommendation/${user?.email}`);
+                const response = await axios.get(`http://localhost:5000/myRecommendation/${user?.email}`,{withCredentials:true});
                 setMyRecommendation(response.data);
             } catch (error) {
                 console.error('Error fetching recommendations:', error);
@@ -21,6 +22,7 @@ const MyRecommendations = () => {
     }, [user]);
     return (
         <div>
+          <PageTitle title={'My Recommendations'}></PageTitle>
             <div className="relative -top-20 w-full">
                 <PageBanner pageTitle={`My ReCommendations: ${myRecommendations?.length}`}></PageBanner>
             </div>

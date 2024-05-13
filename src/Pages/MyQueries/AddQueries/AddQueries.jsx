@@ -4,6 +4,7 @@ import { AuthContext } from "../../../Provider/AuthProvider";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import PageTitle from "../../../Components/PageTitle/PageTitle";
 
 const AddQueries = () => {
     const { user } = useContext(AuthContext);
@@ -57,6 +58,7 @@ const AddQueries = () => {
     }
     return (
         <section className="">
+            <PageTitle title={'Add Queries'}></PageTitle>
             <div className="w-full relative -top-20">
                 <PageBanner pageTitle={'Add Your Queries'}></PageBanner>
             </div>

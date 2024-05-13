@@ -4,6 +4,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
+import PageTitle from "../PageTitle/PageTitle";
 
 
 
@@ -51,7 +52,7 @@ const Update = () => {
             authorImage: user?.photoURL,
         }
         console.log(query);
-        axios.put(`http://localhost:5000/queries/${_id}`, query)
+        axios.put(`http://localhost:5000/queries/${_id}`, query, { withCredentials: true })
             .then(data => {
                 if (data.data.modifiedCount > 0) {
                     Swal.fire({
@@ -69,6 +70,7 @@ const Update = () => {
 
     return (
         <section className="">
+            <PageTitle title={`Update of ${productName}`}></PageTitle>
             <div className="w-full relative -top-20">
                 <PageBanner pageTitle={'Update Your Queries'}></PageBanner>
             </div>
@@ -109,7 +111,7 @@ const Update = () => {
                     </div>
 
                     <div className="flex justify-center mt-6">
-                        <input type="submit" value="Add Query" className="px-8 py-2.5 leading-5 bg-gray-400 transition-colors duration-300 transform btn text-[#f2f2f2f2] rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600" />
+                        <input type="submit" value="Update Query" className="px-8 py-2.5 leading-5 bg-gray-400 transition-colors duration-300 transform btn text-[#f2f2f2f2] rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600" />
                     </div>
                 </form>
             </div>

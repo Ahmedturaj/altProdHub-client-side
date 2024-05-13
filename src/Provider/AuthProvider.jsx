@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import PropTypes from 'prop-types';
 import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import auth from "../firebase/firebase.config.init";
+import axios from "axios";
 
 // import axios from "axios";
 
@@ -42,21 +43,22 @@ const AuthProvider = ({ children }) => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
 
             setLoading(false);
-            // const userEmail = currentUser?.email || user.email;
-            // const loggedUser = { email: userEmail }
-            setUser(currentUser);
-            // if (currentUser) {
-            //     axios.post('/jwt', loggedUser, { withCredentials: true })
-            //         .then(res => {
-            //             console.log('token response', res.data);
-            //         })
+            const userEmail = currentUser?.email || user?.email;
+            const loggedUser = { email: userEmail }
+            setUser(currentUser)
+            if (currentUser) {
+                axios.post('http://localhost:5000/jwt', loggedUser, { withCredentials: true })
+                    .then(res => {
+                        console.log('token response', res.data);
+                    })
 
-            // } else {
-            //     axios.post('/logOut', loggedUser, { withCredentials: true })
-            //         .then(res => {
-            //             console.log(res.data);
-            //         })
-            // }
+            } else {
+                setUser(null)
+                axios.post('http://localhost:5000/logOut', loggedUser, { withCredentials: true })
+                    .then(res => {
+                        console.log(res.data);
+                    })
+            }
 
         })
         return () => {

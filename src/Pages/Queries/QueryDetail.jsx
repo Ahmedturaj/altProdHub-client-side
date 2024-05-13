@@ -5,6 +5,7 @@ import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../Provider/AuthProvider';
+import PageTitle from '../../Components/PageTitle/PageTitle';
 
 const QueryDetail = () => {
     const { user } = useContext(AuthContext);
@@ -86,9 +87,8 @@ const QueryDetail = () => {
                 }
             })
     }
-
     useEffect(() => {
-        axios.get(`http://localhost:5000/recommendation/${_id}`)
+        axios.get(`http://localhost:5000/recommendation/${_id}`, { withCredentials: true })
             .then(comment => {
                 setComments(comment.data);
             })
@@ -104,6 +104,7 @@ const QueryDetail = () => {
     }
     return (
         <section>
+            <PageTitle title={'Query Details'}></PageTitle>
             <div className="w-full relative -top-20">
                 <PageBanner pageTitle={`Details of: ${productName}`}></PageBanner>
             </div>
@@ -129,7 +130,7 @@ const QueryDetail = () => {
                 {
                     comments.map(comment => <div key={comment._id} className="chat chat-start">
                         <div className="chat-header">
-                           From: {comment?.recommendationName}
+                            From: {comment?.recommendationName}
                             <time className="text-xs ml-2 opacity-50">{formatDate(comment.dateTimes)}</time>
                         </div>
                         <div className="chat-bubble">

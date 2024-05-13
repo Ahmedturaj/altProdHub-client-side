@@ -29,7 +29,7 @@ const Recommendation = ({ comment, myRecommendations, setMyRecommendation }) => 
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:5000/recommendation/${_id}`)
+                axios.delete(`http://localhost:5000/recommendation/${_id}`, { withCredentials: true })
                     .then(data => {
                         if (data.data.deletedCount > 0) {
                             Swal.fire({

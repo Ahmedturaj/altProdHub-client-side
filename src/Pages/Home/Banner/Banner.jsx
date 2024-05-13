@@ -6,6 +6,7 @@ import img4 from '../../../assets/img4.png'
 import './styles.css'
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Tilt } from 'react-tilt';
 
 const Banner = () => {
     useEffect(() => {
@@ -65,9 +66,9 @@ const Banner = () => {
                         <div className="content">
                             <div className="title text-xl lg:text-5xl  font-extrabold">Empower Your Choices: </div>
                             <div className="type font-extrabold text-xl lg:text-4xl my-6"> Discover Limitless Options!</div>
-                            <div className="btn mb-5 bg-[hsl(112,43%,55%)] md:mt-5 mt-0 text-white">
+                            <Tilt><div style={{transition:'all 1s'}} className="btn  mb-5 bg-[hsl(112,43%,55%)] md:mt-5 mt-0 text-white hover:bg-[hsl(52,68%,49%)]">
                                 <Link to={'/allQueries'}><button className=''>Explore Queries</button></Link>
-                            </div>
+                            </div></Tilt>
                         </div>
                     </div>
 
@@ -77,9 +78,9 @@ const Banner = () => {
                         <div className="content">
                             <div className="title text-xl lg:text-5xl  font-extrabold">Unlock Better Solutions: </div>
                             <div className="type font-extrabold text-xl lg:text-4xl my-6">Explore</div>
-                            <div className="btn mb-5 bg-[hsl(112,43%,55%)] mt-5 text-white">
+                            <Tilt><div style={{transition:'all 1s'}} className="btn mb-5 hover:bg-[hsl(52,68%,49%)] bg-[hsl(112,43%,55%)] mt-5 text-white">
                             <Link to={'/allQueries'}><button className=''>Explore Queries</button></Link>
-                            </div>
+                            </div></Tilt>
                         </div>
                     </div>
 
@@ -89,9 +90,9 @@ const Banner = () => {
                         <div className="content">
                             <div className="title text-xl lg:text-5xl  font-extrabold"> Navigate  </div>
                             <div className="type font-extrabold text-xl lg:text-4xl my-6">Products with Confidence!</div>
-                            <div className="btn mb-5 bg-[hsl(112,43%,55%)] mt-1 md:mt-5 text-white">
+                            <Tilt><div style={{transition:'all 1s'}} className="btn mb-5 bg-[hsl(112,43%,55%)] mt-1 md:mt-5 text-white hover:bg-[hsl(52,68%,49%)]">
                             <Link to={'/allQueries'}><button className=''>Explore Queries</button></Link>
-                            </div>
+                            </div></Tilt>
                         </div>
                     </div>
 
@@ -100,10 +101,10 @@ const Banner = () => {
 
                         <div className="content">
                             <div className="title text-xl lg:text-5xl  font-extrabold">Join the Conversation </div>
-                            <div className="type font-extrabold text-xl lg:text-4xl my-6"> Unleash Your Product Wisdom!</div>
-                            <div className="btn mb-5 bg-[hsl(112,43%,55%)] lg:mt-5 text-white">
-                            <Link to={'/allQueries'}><button className=''>Explore Queries</button></Link>
-                            </div>
+                            <div  className="type font-extrabold text-xl lg:text-4xl my-6"> Unleash Your Product Wisdom!</div>
+                           <Tilt><div style={{transition:'all 1s'}} className="btn mb-5 bg-[hsl(112,43%,55%)] lg:mt-5 text-white hover:bg-[hsl(52,68%,49%)]">
+                            <Link to={'/allQueries'}><button  className=''>Explore Queries</button></Link>
+                            </div></Tilt>
                         </div>
                     </div>
 

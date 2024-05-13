@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import PageBanner from "../../Components/PageBanner/PageBanner";
 import Query from "./Query";
+import PageTitle from "../../Components/PageTitle/PageTitle";
 
 const Queries = () => {
   const loadedData = useLoaderData();
@@ -28,6 +29,7 @@ const Queries = () => {
 
   return (
     <section>
+      <PageTitle title={'All Queries'}></PageTitle>
       <div className="relative -top-20 w-full">
         <PageBanner pageTitle={'All Queries'}></PageBanner>
       </div>

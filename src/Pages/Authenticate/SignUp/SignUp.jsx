@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../../Provider/AuthProvider';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import PageTitle from '../../../Components/PageTitle/PageTitle';
 
 const SignUp = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -91,6 +92,7 @@ const SignUp = () => {
 
     return (
         <section className="mt-24">
+            <PageTitle title={'Sign Up'}></PageTitle>
             <div className="container flex items-center justify-center min-h-screen px-6 mx-auto">
                 <form onSubmit={handleSignUp} className="w-full max-w-md">
                     <div className="flex justify-center mx-auto">

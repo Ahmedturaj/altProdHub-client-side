@@ -4,15 +4,20 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import MyQuery from "./MyQuery";
 import noQueryPhoto from '../../assets/scratching-the-head-1647_256.gif'
+import axios from "axios";
+import PageTitle from "../../Components/PageTitle/PageTitle";
 
 const MyQueries = () => {
     const { user } = useContext(AuthContext);
     const [myQueries, setMyQueries] = useState([]);
+    const url = `http://localhost:5000/myQueries/${user?.email}`
     useEffect(() => {
-        fetch(`http://localhost:5000/myQueries/${user?.email}`)
-            .then(res => res.json())
-            .then(data => setMyQueries(data))
-    }, [user]);
+       axios.get(url, {withCredentials:true})
+       .then(data=>{
+        setMyQueries(data.data)
+       })
+    }, [user,url]);
+    // ____________________
     const [layoutOption, setLayoutOption] = useState("lg:grid-cols-3");
     const [showDropdown, setShowDropdown] = useState(false);
 
@@ -31,6 +36,7 @@ const MyQueries = () => {
 
     return (
         <section>
+            <PageTitle title={'My Queries'}></PageTitle>
             <div className="w-full relative -top-20">
                 <PageBanner pageTitle={'My Queries'}></PageBanner>
             </div>
