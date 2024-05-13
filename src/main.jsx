@@ -32,12 +32,12 @@ const router = createBrowserRouter([
       {
         path: '/allQueries',
         element: <Queries></Queries>,
-        loader: () => fetch('http://localhost:5000/queries')
+        loader: () => fetch('https://b9a11-server-side-two.vercel.app/queries')
       },
       {
         path: '/queryDetails/:id',
         element: <PrivateRoutes><QueryDetail></QueryDetail></PrivateRoutes>,
-        loader: ({ params }) => fetch(`http://localhost:5000/queries/${params.id}`, { credentials: 'include' })
+        loader: ({ params }) => fetch(`https://b9a11-server-side-two.vercel.app/queries/${params.id}`, { credentials: 'include' })
       },
       {
         path: '/reCommendForMe',
@@ -58,7 +58,7 @@ const router = createBrowserRouter([
       {
         path: '/update/:id',
         element: <PrivateRoutes><Update></Update></PrivateRoutes>,
-        loader: ({ params }) => fetch(`http://localhost:5000/queries/${params.id}`, { credentials: 'include' })
+        loader: ({ params }) => fetch(`https://b9a11-server-side-two.vercel.app/queries/${params.id}`, { credentials: 'include' })
       },
       {
         path: '/signUp',

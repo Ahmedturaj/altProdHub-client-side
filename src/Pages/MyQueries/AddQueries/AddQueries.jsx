@@ -40,7 +40,7 @@ const AddQueries = () => {
             authorImage: user?.photoURL,
         }
         console.log(query);
-        axios.post('http://localhost:5000/queries', query)
+        axios.post('https://b9a11-server-side-two.vercel.app/queries', query)
             .then(data => {
                 console.log(data.data);
                 if (data.data.insertedId) {

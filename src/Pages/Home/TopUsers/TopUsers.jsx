@@ -6,7 +6,7 @@ const TopUsers = () => {
     const [topContributors, setTopContributors] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:5000/users')
+        axios.get('https://b9a11-server-side-two.vercel.app/users')
             .then(response => {
                 setTopContributors(response.data);
             })

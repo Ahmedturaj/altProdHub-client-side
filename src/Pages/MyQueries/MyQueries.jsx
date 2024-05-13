@@ -10,7 +10,7 @@ import PageTitle from "../../Components/PageTitle/PageTitle";
 const MyQueries = () => {
     const { user } = useContext(AuthContext);
     const [myQueries, setMyQueries] = useState([]);
-    const url = `http://localhost:5000/myQueries/${user?.email}`
+    const url = `https://b9a11-server-side-two.vercel.app/myQueries/${user?.email}`
     useEffect(() => {
        axios.get(url, {withCredentials:true})
        .then(data=>{

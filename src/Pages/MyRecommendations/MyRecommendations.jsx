@@ -11,7 +11,7 @@ const MyRecommendations = () => {
     useEffect(() => {
         const fetchMyRecommendations = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/myRecommendation/${user?.email}`,{withCredentials:true});
+                const response = await axios.get(`https://b9a11-server-side-two.vercel.app/myRecommendation/${user?.email}`,{withCredentials:true});
                 setMyRecommendation(response.data);
             } catch (error) {
                 console.error('Error fetching recommendations:', error);

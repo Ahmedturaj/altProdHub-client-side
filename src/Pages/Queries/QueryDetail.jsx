@@ -73,7 +73,7 @@ const QueryDetail = () => {
             query_id: _id
 
         }
-        axios.post('http://localhost:5000/recommendation', recommendation)
+        axios.post('https://b9a11-server-side-two.vercel.app/recommendation', recommendation)
             .then(data => {
                 if (data.data.insertedId) {
                     Swal.fire({
@@ -88,7 +88,7 @@ const QueryDetail = () => {
             })
     }
     useEffect(() => {
-        axios.get(`http://localhost:5000/recommendation/${_id}`, { withCredentials: true })
+        axios.get(`https://b9a11-server-side-two.vercel.app/recommendation/${_id}`, { withCredentials: true })
             .then(comment => {
                 setComments(comment.data);
             })

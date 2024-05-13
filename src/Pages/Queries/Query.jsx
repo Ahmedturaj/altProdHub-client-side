@@ -9,7 +9,7 @@ const Query = ({ query }) => {
     const [comments, setComments] = useState([]);
     const [counterOn, setCounterOn] = useState(false);
     useEffect(() => {
-        axios.get(`http://localhost:5000/recommendation/${_id}`)
+        axios.get(`https://b9a11-server-side-two.vercel.app/recommendation/${_id}`)
             .then(comment => {
                 setComments(comment.data);
             })

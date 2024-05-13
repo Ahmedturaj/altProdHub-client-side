@@ -52,7 +52,7 @@ const Update = () => {
             authorImage: user?.photoURL,
         }
         console.log(query);
-        axios.put(`http://localhost:5000/queries/${_id}`, query, { withCredentials: true })
+        axios.put(`https://b9a11-server-side-two.vercel.app/queries/${_id}`, query, { withCredentials: true })
             .then(data => {
                 if (data.data.modifiedCount > 0) {
                     Swal.fire({

@@ -5,7 +5,7 @@ import RecentQuery from "./RecentQuery";
 const RecentQueries = () => {
     const [recentQueries, setRecentQueries] = useState([])
     useEffect(() => {
-        axios.get('http://localhost:5000/queries')
+        axios.get('https://b9a11-server-side-two.vercel.app/queries')
             .then(data => {
                 setRecentQueries(data.data)
             })
