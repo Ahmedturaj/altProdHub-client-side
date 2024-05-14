@@ -14,7 +14,7 @@ const Footer = () => {
                 <Link to={'/'} className="btn relative -left-7 md:left-7 btn-ghost text-xs md:text-2xl gap-0 font_Jersey  text-gray-400"><AiFillProduct className="text-[hsl(112,43%,55%)]" />
                     <span className="text-[hsl(112,43%,55%)]">A</span>lt<span className="text-[hsl(112,43%,55%)]">P</span>rod<span className="text-[hsl(112,43%,55%)]">Hub</span></Link>
 
-                    <p className="max-w-sm mt-2 text-gray-500 dark:text-gray-400">Join 31,000+ other and never miss out on new tips, tutorials, and more.</p>
+                    <p className="max-w-sm mt-2 text-gray-500 dark:text-gray-400">AltProdHub : Streamlined, Transparent, Dynamic, Accessible, Comprehensive, Innovative, User-friendly.</p>
 
                     <div className="flex mt-6 -mx-2">
                         <Link title="visit our Instagram site" target="-blank" to={'https://www.instagram.com/the_shekh_toukir_ahmed/'}
