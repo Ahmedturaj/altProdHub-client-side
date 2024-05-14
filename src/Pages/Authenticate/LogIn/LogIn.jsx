@@ -56,8 +56,8 @@ const LogIn = () => {
         googleLogIn()
             .then(result => {
                 setUser(result.user);
-                const user =  result.user.email ;
-                axios.post(`https://b9a11-server-side-two.vercel.app/jwt`, user, {
+                const email =  result.user.email ;
+                axios.post(`https://b9a11-server-side-two.vercel.app/jwt`, {email}, {
                     withCredentials: true,
                   })
                   .then((res) => {
