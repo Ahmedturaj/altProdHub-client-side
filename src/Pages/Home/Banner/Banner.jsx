@@ -64,8 +64,8 @@ const Banner = () => {
                         <img src={img1} alt="" className='w-full'/>
 
                         <div className="content">
-                            <div className="title text-xl lg:text-5xl  font-extrabold">Empower Your Choices: </div>
-                            <div className="type font-extrabold text-xl lg:text-4xl my-6"> Discover Limitless Options!</div>
+                            <div className="title text-xl lg:text-5xl  font-extrabold">Discover Alternatives </div>
+                            <div className="type font-extrabold text-xl lg:text-4xl my-6"> with AltProdHub!</div>
                             <Tilt><div style={{transition:'all 1s'}} className="btn  mb-5 bg-[hsl(112,43%,55%)] md:mt-5 mt-0 text-white hover:bg-[hsl(52,68%,49%)]">
                                 <Link to={'/allQueries'}><button className=''>Explore Queries</button></Link>
                             </div></Tilt>
@@ -88,7 +88,7 @@ const Banner = () => {
                         <img src={img3} alt="" />
 
                         <div className="content">
-                            <div className="title text-xl lg:text-5xl  font-extrabold"> Navigate  </div>
+                            <div className="title text-xl lg:text-5xl  font-extrabold"> Explore Alternative  </div>
                             <div className="type font-extrabold text-xl lg:text-4xl my-6">Products with Confidence!</div>
                             <Tilt><div style={{transition:'all 1s'}} className="btn mb-5 bg-[hsl(112,43%,55%)] mt-1 md:mt-5 text-white hover:bg-[hsl(52,68%,49%)]">
                             <Link to={'/allQueries'}><button className=''>Explore Queries</button></Link>
