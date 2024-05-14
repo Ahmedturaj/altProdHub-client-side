@@ -11,6 +11,15 @@ const RecommendationTable = ({ comment }) => {
         authorName,
         authorImage,
          } = comment;
+         const parsedDateTime = new Date(dateTimes);
+    const formattedDateTime = parsedDateTime.toLocaleString('en-US', {
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+        hour12: true
+    });
     return (
         <tr>
             <td>
@@ -27,7 +36,7 @@ const RecommendationTable = ({ comment }) => {
                 </div>
             </td>
             <td>
-                {dateTimes}
+                {formattedDateTime}
                 <br />
                 <div className="badge badge-ghost badge-sm">{recommendationReason}</div>
             </td>

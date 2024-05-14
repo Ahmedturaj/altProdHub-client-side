@@ -16,6 +16,15 @@ const Recommendation = ({ comment, myRecommendations, setMyRecommendation }) => 
         authorName,
         authorImage,
         _id } = comment;
+    const parsedDateTime = new Date(dateTimes);
+    const formattedDateTime = parsedDateTime.toLocaleString('en-US', {
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+        hour12: true
+    });
 
     // ______________handle Delete______________
     const handleDelete = _id => {
@@ -69,7 +78,7 @@ const Recommendation = ({ comment, myRecommendations, setMyRecommendation }) => 
                 </div>
             </td>
             <td>
-                {dateTimes}
+                {formattedDateTime}
                 <br />
                 <div className="badge badge-ghost badge-sm">{recommendationReason}</div>
             </td>

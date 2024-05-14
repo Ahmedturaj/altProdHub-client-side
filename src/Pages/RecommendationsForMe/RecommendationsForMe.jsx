@@ -3,6 +3,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import axios from "axios";
 import PageBanner from "../../Components/PageBanner/PageBanner";
 import RecommendationTable from "./RecommendationTable";
+import noQueryPhoto from '../../assets/scratching-the-head-1647_256.gif'
 import PageTitle from "../../Components/PageTitle/PageTitle";
 
 const RecommendationsForMe = () => {
@@ -27,7 +28,10 @@ const RecommendationsForMe = () => {
         <PageBanner pageTitle={`ReCommendations for me : ${recommendationForMe?.length}`}></PageBanner>
       </div>
       {/* table */}
-      <div className="lg:ml-10">
+     { recommendationForMe.length === 0 ? <div className="flex flex-col justify-center items-center">
+                <img src={noQueryPhoto} alt="" className="bg-gray-200 bg-opacity-20" />
+                <p>No recommendations come from your query yet.</p>
+            </div> : <div className="lg:ml-10">
 
         <div className="overflow-x-scroll md:overflow-x-hidden">
           <table className="table">
@@ -50,7 +54,7 @@ const RecommendationsForMe = () => {
           </table>
         </div>
 
-      </div>
+      </div>}
     </div>
   );
 };

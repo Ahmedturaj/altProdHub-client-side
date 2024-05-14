@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import PageBanner from "../../Components/PageBanner/PageBanner";
 import Recommendation from "./Recommendation";
+import noQueryPhoto from '../../assets/scratching-the-head-1647_256.gif'
 import PageTitle from "../../Components/PageTitle/PageTitle";
 
 const MyRecommendations = () => {
@@ -26,7 +27,12 @@ const MyRecommendations = () => {
             <div className="relative -top-20 w-full">
                 <PageBanner pageTitle={`My ReCommendations: ${myRecommendations?.length}`}></PageBanner>
             </div>
-            <div className="lg:ml-10">
+
+            
+            {myRecommendations.length === 0 ? <div className="flex flex-col justify-center items-center">
+                <img src={noQueryPhoto} alt="" className="bg-gray-200 bg-opacity-20" />
+                <p>Please Recommend something</p>
+            </div> :<div className="lg:ml-10">
 
         <div className="overflow-x-scroll md:overflow-x-hidden">
           <table className="table">
@@ -49,7 +55,7 @@ const MyRecommendations = () => {
           </table>
         </div>
 
-      </div>
+      </div>}
         </div>
     );
 };
