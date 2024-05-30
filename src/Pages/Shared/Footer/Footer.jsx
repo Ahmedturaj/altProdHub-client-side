@@ -1,6 +1,6 @@
 import { AiFillProduct } from "react-icons/ai";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
-import { FaGithub } from "react-icons/fa6";
+import { FaGithub, FaRightLong } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
 
@@ -63,8 +63,8 @@ const Footer = () => {
 
                     <div>
                         <h3 className="text-gray-700 uppercase dark:text-white">Contact</h3>
-                        <span className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">+1 526 654 8965</span>
-                        <span className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">turaj@email.com</span>
+                        <span className="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">Have any question?</span>
+                        <Link to={'mailto:sheikhtoukirahmedturaj013@gmail.com'} className="flex gap-2  items-center mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline"><FaRightLong className="text-[hsl(112,43%,55%)]"></FaRightLong> Mail Us</Link>
                     </div>
                 </div>
             </div>
